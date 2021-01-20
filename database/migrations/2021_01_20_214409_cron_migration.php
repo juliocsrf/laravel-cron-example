@@ -15,10 +15,10 @@ class CronMigration extends Migration
     {
         Schema::create('cron', function (Blueprint $table){
             $table->id();
-            $table->dateTime('every_minute');
-            $table->dateTime('five_minutes');
-            $table->dateTime('hour');
-            $table->dateTime('day');
+            $table->dateTime('every_minute')->nullable();
+            $table->dateTime('five_minutes')->nullable();
+            $table->dateTime('hour')->nullable();
+            $table->dateTime('day')->nullable();
         });
     }
 

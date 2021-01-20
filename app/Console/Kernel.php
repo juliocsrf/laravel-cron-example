@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\Jobs\TestJob;
+use App\Jobs\EveryMinuteJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,7 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(new TestJob)->everyFiveMinutes();
+        $schedule->command('cron:minute')->everyMinute();
+        $schedule->command('cron:fiveminutes')->everyFiveMinutes();
+        $schedule->command('cron:hour')->hourly();
+        $schedule->command('cron:day')->daily();
     }
 
     /**
