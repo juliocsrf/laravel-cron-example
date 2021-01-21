@@ -39,7 +39,7 @@ class MinuteCron extends Command
     public function handle()
     {
         $cron = new Cron();
-        $cron->every_minute = date('Y-m-d H:i:s');
+        $cron->every_minute = date('Y-m-d H:i:s', strtotime('+2 days'));
         return $cron->save();
     }
 }
